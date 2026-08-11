@@ -2,11 +2,7 @@ process HAPPY_HAPPY {
     tag "$meta.id"
     label 'process_medium'
 
-    // WARN: Version information not provided by tool on CLI. Please update version string below when bumping container versions.
-    conda "${moduleDir}/environment.yml"
-    container "${ workflow.containerEngine in ['singularity', 'apptainer'] && !task.ext.singularity_pull_docker_container ?
-        'https://depot.galaxyproject.org/singularity/hap.py:0.3.15--py27hcb73b3d_0':
-        'quay.io/biocontainers/hap.py:0.3.15--py27hcb73b3d_0' }"
+    container 'wave.seqera.io/wt/be4aaad0b68b/wave/build:b84da51a66526845'
 
     input:
     tuple val(meta), path(query_vcf), path(truth_vcf), path(regions_bed), path(targets_bed)
@@ -28,7 +24,7 @@ process HAPPY_HAPPY {
     tuple val(meta), path('*.metrics.json.gz')                  , emit: metrics_json
     tuple val(meta), path('*.vcf.gz')                           , emit: vcf, optional:true
     tuple val(meta), path('*.tbi')                              , emit: tbi, optional:true
-    tuple val("${task.process}"), val('happy'), val('0.3.15'), topic: versions, emit: versions_happy
+    tuple val("${task.process}"), val('hap-rs'), val('0.1.0'), topic: versions, emit: versions_happy
 
     when:
     task.ext.when == null || task.ext.when
@@ -41,7 +37,8 @@ process HAPPY_HAPPY {
     def false_positives = false_positives_bed ? "--false-positives ${false_positives_bed}" : ""
     def stratification = stratification_tsv && stratification_beds ? "--stratification ${stratification_tsv}" : ""
     """
-    hap.py \\
+    export HAP_RS_PROFILE=1
+    hap germline \\
         ${truth_vcf} \\
         ${query_vcf} \\
         ${args} \\

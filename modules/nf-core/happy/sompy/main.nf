@@ -2,11 +2,7 @@ process HAPPY_SOMPY {
     tag "$meta.id"
     label 'process_medium'
 
-    // WARN: Version information not provided by tool on CLI. Please update version string below when bumping container versions.
-    conda "${moduleDir}/environment.yml"
-    container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'https://depot.galaxyproject.org/singularity/hap.py:0.3.15--py27hcb73b3d_0':
-        'biocontainers/hap.py:0.3.15--py27hcb73b3d_0' }"
+    container 'wave.seqera.io/wt/be4aaad0b68b/wave/build:b84da51a66526845'
 
     input:
     tuple val(meta), path(query_vcf), path(truth_vcf), path(regions_bed), path(targets_bed)
@@ -20,7 +16,7 @@ process HAPPY_SOMPY {
     tuple val(meta), path('*.features.csv')           , emit: features, optional: true
     tuple val(meta), path('*.metrics.json')           , emit: metrics
     tuple val(meta), path('*.stats.csv')              , emit: stats
-    tuple val("${task.process}"), val('happy'), val('0.3.15'), topic: versions, emit: versions_happy
+    tuple val("${task.process}"), val('hap-rs'), val('0.1.0'), topic: versions, emit: versions_happy
 
     when:
     task.ext.when == null || task.ext.when
@@ -34,7 +30,8 @@ process HAPPY_SOMPY {
     def ambiguous = ambiguous_beds ? "--ambiguous ${ambiguous_beds}" : ""
     def bams_opt = bams ? "--bam ${bams}" : ""
     """
-    som.py \\
+    export HAP_RS_PROFILE=1
+    hap somatic \\
         ${truth_vcf} \\
         ${query_vcf} \\
         ${args} \\
