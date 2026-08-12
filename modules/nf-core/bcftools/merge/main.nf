@@ -14,7 +14,7 @@ process BCFTOOLS_MERGE {
     tuple val(meta4), path(bed)
 
     output:
-    tuple val(meta), path("*.{bcf,vcf}{,.gz}"), emit: vcf
+    tuple val(meta), path("*.vcf"), emit: vcf
     tuple val(meta), path("*.{csi,tbi}"), emit: index, optional: true
     tuple val("${task.process}"), val('bcftools'), eval("bcftools --version | sed '1!d; s/^.*bcftools //'"), topic: versions, emit: versions_bcftools
 
