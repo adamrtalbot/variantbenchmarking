@@ -42,6 +42,49 @@
             "nextflow": "25.10.4"
         }
     },
+    "Single sompy features merge": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test",
+                            "tag": "TP_comp"
+                        },
+                        "test.TP_comp.csv:md5,1560e19e397f0e2cb9bad2becac8edae"
+                    ]
+                ],
+                "1": [
+                    [
+                        "SOMPY_FEATURES_MERGE",
+                        "python",
+                        "3.12.13"
+                    ]
+                ],
+                "output": [
+                    [
+                        {
+                            "id": "test",
+                            "tag": "TP_comp"
+                        },
+                        "test.TP_comp.csv:md5,1560e19e397f0e2cb9bad2becac8edae"
+                    ]
+                ],
+                "versions_python": [
+                    [
+                        "SOMPY_FEATURES_MERGE",
+                        "python",
+                        "3.12.13"
+                    ]
+                ]
+            }
+        ],
+        "timestamp": "2026-08-12T18:43:45.977012",
+        "meta": {
+            "nf-test": "0.9.5",
+            "nextflow": "26.04.6"
+        }
+    },
     "Standard sompy features merge stub": {
         "content": [
             {

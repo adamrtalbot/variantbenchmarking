@@ -19,10 +19,11 @@ process SOMPY_FEATURES_MERGE {
 
     script:
     def prefix = task.ext.prefix ?: "${meta.id}"
-    def orderedCsvs = csvs.sort { a, b -> b.name <=> a.name }
+    def orderedCsvs = (csvs instanceof Collection ? csvs : [csvs]).sort { a, b -> b.name <=> a.name }
+    def inputArgs = orderedCsvs.join(' ')
 
     """
-    merge_sompy_features.py $orderedCsvs --output ${prefix}.csv
+    merge_sompy_features.py $inputArgs --output ${prefix}.csv
 
     """
     stub:
