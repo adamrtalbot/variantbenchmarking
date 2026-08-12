@@ -36,6 +36,32 @@ nextflow_process {
         }
     }
 
+    test("Single report merge") {
+
+        tag "single_report"
+
+        when {
+            params {
+                analysis = 'germline'
+            }
+            process {
+                """
+                input[0] = [
+                    [ benchmark_tool: 'svbenchmark', vartype: 'structural' ],
+                    file(params.test_data_base + '/testdata/nf-test/merge_reports/test1.HG002.delly.report')
+                ]
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert process.success },
+                { assert snapshot(process.out).match() }
+            )
+        }
+    }
+
     test("Standard report merge - stub") {
 
         options "-stub"

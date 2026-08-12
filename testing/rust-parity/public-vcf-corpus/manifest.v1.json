@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "manifest_version": "2026-08-12.2",
+  "manifest_version": "2026-08-12.3",
   "created_at": "2026-08-12T17:20:00Z",
   "campaign": "public-vcf-legacy-hap-rs-parity-2026-08-12",
   "workspace_id": "162690105070735",
@@ -130,7 +130,7 @@
     },
     {
       "id": "somatic-hg008-nygc", "analysis": "somatic", "reference": "grch38_giabv3", "truth_set": "giab_hg008_v0_3_grch38_giabv3",
-      "query": {"project": "New York Genome Center somatic pipeline", "release": "final v7, 2024-04-12", "sample": "HG008-T passage 23 and HG008-N-P", "caller": "NYGC consensus small variants", "vcf": "https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data_somatic/HG008/Liss_lab/analysis/NYGC-somatic-pipeline_20240412/GRCh38-GIABv3/HG008-T--HG008-N.snv.indel.final.v7.annotated.vcf.gz", "vcf_index": "https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data_somatic/HG008/Liss_lab/analysis/NYGC-somatic-pipeline_20240412/GRCh38-GIABv3/HG008-T--HG008-N.snv.indel.final.v7.annotated.vcf.gz.tbi", "sha256": {"vcf": "5588e1455adf4e61e09070b0b935004f22c7d5bcb061c152603738a3c9c5fdcd", "index": "6002b52af46f55e48bfceb8b3e3c49d705abc999f6782088d1a1bad521420586"}, "observed_samples": ["HG008-N", "HG008-T"], "subsample": "HG008-T", "variant_counts_after_subsample": {"records": 14869, "snps": 12599, "indels": 2062}},
+      "query": {"project": "New York Genome Center somatic pipeline", "release": "final v7, 2024-04-12", "sample": "HG008-T passage 23 and HG008-N-P", "caller": "NYGC consensus small variants", "vcf": "https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data_somatic/HG008/Liss_lab/analysis/NYGC-somatic-pipeline_20240412/GRCh38-GIABv3/HG008-T--HG008-N.snv.indel.final.v7.annotated.vcf.gz", "vcf_index": "https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data_somatic/HG008/Liss_lab/analysis/NYGC-somatic-pipeline_20240412/GRCh38-GIABv3/HG008-T--HG008-N.snv.indel.final.v7.annotated.vcf.gz.tbi", "sha256": {"vcf": "5588e1455adf4e61e09070b0b935004f22c7d5bcb061c152603738a3c9c5fdcd", "index": "6002b52af46f55e48bfceb8b3e3c49d705abc999f6782088d1a1bad521420586"}, "observed_samples": ["HG008-N", "HG008-T"], "subsample": "HG008-T", "variant_counts_after_subsample": {"records": 14869, "snps": 12599, "indels": 2062}, "compatibility_note": "The published query has FORMAT/AD and FORMAT/AF but no FORMAT/GT. The samplesheet declares missing_genotypes=true so the existing preprocessing path preserves those records instead of applying a GT filter."},
       "samplesheet": "samplesheets/somatic-hg008-nygc.csv", "rationale": "Independent NYGC consensus analysis of the patient-derived HG008 pair, explicitly subsampled to the tumor genotype."
     },
     {
