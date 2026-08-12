@@ -19,9 +19,10 @@ process SOMPY_FEATURES_MERGE {
 
     script:
     def prefix = task.ext.prefix ?: "${meta.id}"
+    def orderedCsvs = csvs.sort { a, b -> b.name <=> a.name }
 
     """
-    merge_sompy_features.py $csvs --output ${prefix}.csv
+    merge_sompy_features.py $orderedCsvs --output ${prefix}.csv
 
     """
     stub:
