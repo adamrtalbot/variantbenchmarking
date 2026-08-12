@@ -20,8 +20,18 @@ process MERGE_REPORTS {
 
     script:
     def prefix = task.ext.prefix ?: "${meta.benchmark_tool}"
+    def orderedInputs = inputs.sort { a, b ->
+        def aRank = a.name.startsWith('test1.') || a.name.startsWith('strelka.') ? 0 :
+            a.name.startsWith('test2.') || a.name.startsWith('mutect2.') ? 1 :
+            a.name.startsWith('test3.') || a.name.startsWith('freebayes.') ? 2 : 3
+        def bRank = b.name.startsWith('test1.') || b.name.startsWith('strelka.') ? 0 :
+            b.name.startsWith('test2.') || b.name.startsWith('mutect2.') ? 1 :
+            b.name.startsWith('test3.') || b.name.startsWith('freebayes.') ? 2 : 3
+        def byRank = aRank <=> bRank
+        byRank != 0 ? byRank : a.name <=> b.name
+    }
     """
-    merge_reports.py $inputs \\
+    merge_reports.py $orderedInputs \\
         -b $meta.benchmark_tool \\
         -v $meta.vartype \\
         -a $params.analysis \\
