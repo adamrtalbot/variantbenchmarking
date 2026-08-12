@@ -2,7 +2,7 @@ process HAPPY_HAPPY {
     tag "$meta.id"
     label 'process_medium'
 
-    container 'wave.seqera.io/wt/07b660e5a317/wave/build:158cf20a25a302b3'
+    container 'wave.seqera.io/wt/6a51dfcd00c7/wave/build:f8430331c4739c51'
 
     input:
     tuple val(meta), path(query_vcf), path(truth_vcf), path(regions_bed), path(targets_bed)
