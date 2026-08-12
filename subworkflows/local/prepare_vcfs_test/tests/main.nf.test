@@ -65,6 +65,57 @@ nextflow_workflow {
         }
     }
 
+    test("prepare small variants - format cardinality") {
+
+        tag "format_cardinality"
+
+        when {
+            params {
+                variant_type = "small"
+                preprocess = "fix_format_cardinality"
+                analysis = "germline"
+                liftover = ""
+                sv_standardization = ""
+                genome = "GRCh38"
+            }
+            workflow {
+                """
+                input[0] = Channel.of([
+                    [ id:'test_cardinality', caller:'haplotypecaller', liftover:false, fix_prefix:false, missing_gt:false ],
+                    file(params.modules_testdata_base_path + 'genomics/homo_sapiens/illumina/gatk/haplotypecaller_calls/test2_haplotc.vcf.gz', checkIfExists: true)
+                ])
+                input[1] = Channel.value([
+                    [ id:'test_ref' ],
+                    file(params.modules_testdata_base_path + 'genomics/homo_sapiens/genome/chr21/sequence/genome.fasta', checkIfExists: true)
+                ])
+                input[2] = Channel.value([
+                    [ id:'test_ref' ],
+                    file(params.modules_testdata_base_path + 'genomics/homo_sapiens/genome/chr21/sequence/genome.fasta.fai', checkIfExists: true)
+                ])
+                input[3] = Channel.empty()
+                input[4] = Channel.empty()
+                input[5] = Channel.empty()
+                """
+            }
+        }
+        then {
+            assert workflow.success
+            assertAll(
+                { assert snapshot(
+                    workflow.out.vcf_ch.collect { meta, vcf, tbi ->
+                        def vcfFile = vcf instanceof Collection ? vcf[0] : vcf
+                        [
+                            meta,
+                            path(vcfFile.toString()).getFileName().toString(),
+                            path(vcfFile.toString()).vcf.summary,
+                            path(vcfFile.toString()).vcf.variantsMD5
+                        ]
+                    }.sort { it[0].id }
+                ).match() }
+            )
+        }
+    }
+
     test("prepare somatic variants - strelka gt injection") {
 
         when {

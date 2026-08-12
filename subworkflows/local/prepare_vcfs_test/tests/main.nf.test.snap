@@ -43,6 +43,29 @@
             "nextflow": "25.10.4"
         }
     },
+    "prepare small variants - format cardinality": {
+        "content": [
+            [
+                [
+                    {
+                        "id": "test_cardinality",
+                        "caller": "haplotypecaller",
+                        "liftover": false,
+                        "fix_prefix": false,
+                        "missing_gt": false
+                    },
+                    "test2_haplotc.format-cardinality.reheader.filtermissing.vcf.gz",
+                    "VcfFile [chromosomes=[chr21], sampleCount=1, variantCount=733, phased=false, phasedAutodetect=false]",
+                    "b367c4ff1a50fbceb200a391e0a38061"
+                ]
+            ]
+        ],
+        "timestamp": "2026-08-12T18:39:09.222412",
+        "meta": {
+            "nf-test": "0.9.5",
+            "nextflow": "26.04.6"
+        }
+    },
     "prepare small variants - full preprocess": {
         "content": [
             [

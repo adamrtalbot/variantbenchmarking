@@ -72,7 +72,7 @@ workflow PREPARE_VCFS_TEST {
 
     if (params.preprocess.contains("fix_format_cardinality")) {
         FIX_VCF_FORMAT_CARDINALITY(vcf_ch)
-        vcf_ch = FIX_VCF_FORMAT_CARDINALITY.out.vcf
+        vcf_ch = FIX_VCF_FORMAT_CARDINALITY.out.vcf.map { meta, file, _index -> tuple(meta, file) }
     }
 
     // rename sample name
