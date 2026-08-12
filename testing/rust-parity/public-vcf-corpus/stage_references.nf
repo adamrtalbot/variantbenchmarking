@@ -6,7 +6,7 @@ params.grch37_hs37d5 = 'https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab
 params.grch38_giabv3 = 'https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/release/references/GRCh38/GRCh38_GIABv3_no_alt_analysis_set_maskedGRC_decoys_MAP2K3_KMT2C_KCNJ18.fasta.gz'
 
 process STAGE_REFERENCE {
-    tag name
+    tag "$name"
     container 'quay.io/biocontainers/samtools:1.22--h96c455f_0'
     cpus 1
     memory '4 GB'
@@ -16,12 +16,13 @@ process STAGE_REFERENCE {
     tuple val(name), path(source)
 
     output:
-    tuple val(name), path("${name}.fasta"), path("${name}.fasta.fai")
+    tuple val(name), path("${name}.fasta"), path("${name}.fasta.fai"), path("${name}.sha256")
 
     script:
     """
     bgzip -cd ${source} > ${name}.fasta
     samtools faidx ${name}.fasta
+    sha256sum ${name}.fasta ${name}.fasta.fai > ${name}.sha256
     """
 }
 
