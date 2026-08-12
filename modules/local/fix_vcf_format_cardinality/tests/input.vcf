@@ -1,0 +1,7 @@
+##fileformat=VCFv4.2
+##contig=<ID=chr1,length=100>
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FORMAT=<ID=BG_SB,Number=R,Type=Integer,Description="Background strand counts">
+##FORMAT=<ID=SB,Number=R,Type=Integer,Description="Strand counts">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	sample
+chr1	10	.	A	AT,ATT	60	PASS	.	GT:BG_SB:SB	0/1:10,11,2,3,1,1:4,5,6,7,8,9

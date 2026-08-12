@@ -1,0 +1,25 @@
+nextflow_process {
+    name "Test Process FIX_VCF_FORMAT_CARDINALITY"
+    script "../main.nf"
+    process "FIX_VCF_FORMAT_CARDINALITY"
+
+    test("correct variable strand-count cardinality without changing records") {
+        when {
+            process {
+                """
+                input[0] = [[ id: 'variable-cardinality' ], file(projectDir + '/modules/local/fix_vcf_format_cardinality/tests/input.vcf')]
+                """
+            }
+        }
+
+        then {
+            assert process.success
+            def output = path(process.out.vcf[0][1].toString())
+            def input = path(projectDir + '/modules/local/fix_vcf_format_cardinality/tests/input.vcf')
+            assert output.vcf.variantsMD5 == input.vcf.variantsMD5
+            def header = path(process.out.header[0].toString())
+            assert header.text.contains('##FORMAT=<ID=BG_SB,Number=.,')
+            assert header.text.contains('##FORMAT=<ID=SB,Number=.,')
+        }
+    }
+}

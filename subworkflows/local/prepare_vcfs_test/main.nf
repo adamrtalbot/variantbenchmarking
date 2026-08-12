@@ -15,6 +15,7 @@ include { BCFTOOLS_VIEW as BCFTOOLS_VIEW_FILTERMISSING } from '../../../modules/
 include { GAWK as ADD_GT_STRELKA                       } from '../../../modules/nf-core/gawk'
 include { TABIX_BGZIPTABIX as TABIX_BGZIPTABIX_GT      } from '../../../modules/nf-core/tabix/bgziptabix'
 include { BCFTOOLS_ANNOTATE as BCFTOOLS_RENAME_CHRS    } from '../../../modules/nf-core/bcftools/annotate'
+include { FIX_VCF_FORMAT_CARDINALITY                    } from '../../../modules/local/fix_vcf_format_cardinality'
 
 
 workflow PREPARE_VCFS_TEST {
@@ -68,6 +69,11 @@ workflow PREPARE_VCFS_TEST {
         rename_chr
     )
     vcf_ch = vcf_ch.mix(BCFTOOLS_RENAME_CHRS.out.vcf,fix.other)
+
+    if (params.preprocess.contains("fix_format_cardinality")) {
+        FIX_VCF_FORMAT_CARDINALITY(vcf_ch)
+        vcf_ch = FIX_VCF_FORMAT_CARDINALITY.out.vcf
+    }
 
     // rename sample name
     BCFTOOLS_REHEADER_QUERY(
