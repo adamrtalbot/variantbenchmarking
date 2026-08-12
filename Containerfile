@@ -1,7 +1,7 @@
 FROM --platform=linux/amd64 docker.io/library/rust@sha256:c9ac3fa8945b61dede1e4500d25028aa8fd8a8fe46365fcf9c0422f8d999b9b0 AS builder
 
 ARG HAP_RS_REPOSITORY=https://github.com/adamrtalbot/hap.py.git
-ARG HAP_RS_COMMIT=4bd5133654904353e46c9e6523b98982308c8e61
+ARG HAP_RS_COMMIT=ac539dcfab7eb5a1d2de0081d1521d8509ca23af
 
 WORKDIR /src
 RUN git init \
@@ -16,7 +16,7 @@ FROM --platform=linux/amd64 docker.io/library/debian@sha256:362e64223cc0da95422b
 LABEL org.opencontainers.image.title="hap-rs" \
       org.opencontainers.image.description="Rust implementation of hap.py for nf-core/variantbenchmarking" \
       org.opencontainers.image.source="https://github.com/adamrtalbot/hap.py" \
-      org.opencontainers.image.revision="4bd5133654904353e46c9e6523b98982308c8e61" \
+      org.opencontainers.image.revision="ac539dcfab7eb5a1d2de0081d1521d8509ca23af" \
       org.opencontainers.image.version="0.1.0" \
       io.seqera.variantbenchmarking.rust-version="1.89.0"
 
