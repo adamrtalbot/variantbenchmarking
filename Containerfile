@@ -18,7 +18,8 @@ LABEL org.opencontainers.image.title="hap-rs" \
       org.opencontainers.image.source="https://github.com/adamrtalbot/hap.py" \
       org.opencontainers.image.revision="f662d6afbad572a022ffaaa44d7d282317a5315e" \
       org.opencontainers.image.version="0.1.0" \
-      io.seqera.variantbenchmarking.rust-version="1.89.0"
+      io.seqera.variantbenchmarking.rust-version="1.89.0" \
+      io.seqera.variantbenchmarking.campaign="public-vcf-2026-08-12"
 
 RUN apt-get update \
     && apt-get install --yes --no-install-recommends procps \
