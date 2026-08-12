@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "manifest_version": "2026-08-12.1",
+  "created_at": "2026-08-12T17:20:00Z",
+  "campaign": "public-vcf-legacy-hap-rs-parity-2026-08-12",
+  "workspace_id": "162690105070735",
+  "compute_environment_id": "3IqSAoxbn0jCp8BTFZduqW",
+  "selection_requirements": {
+    "additional_cases": 6,
+    "germline_cases": 3,
+    "somatic_cases": 3,
+    "independent_query_sources": [
+      "Illumina Platinum Genomes",
+      "Real Time Genomics",
+      "PacBio CCS and DeepVariant",
+      "UCSC and Google DeepSomatic",
+      "New York Genome Center somatic pipeline",
+      "Ultima Genomics somatic DeepVariant"
+    ],
+    "reference_builds": ["GRCh37/hs37d5", "GRCh38 no-alt", "GRCh38-GIABv3"],
+    "excluded_controls": ["GIAB CMRG germline profiles", "SEQC2 somatic profiles"]
+  },
+  "licenses": {
+    "nist_giab": "NIST data use policy; acknowledge NIST. US Government employee works are not subject to US copyright; see each source README.",
+    "platinum_genomes": "Public Illumina Platinum Genomes redistribution hosted by GIAB; usage notes and user guide are in the source directory.",
+    "rtg": "Public RTG callset contribution hosted by GIAB; NIST/GIAB host usage terms apply."
+  },
+  "references": {
+    "grch38_no_alt": {
+      "build": "GRCh38",
+      "source_fasta_gz": "https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/release/references/GRCh38/GCA_000001405.15_GRCh38_no_alt_analysis_set.fasta.gz",
+      "source_fai": "https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/release/references/GRCh38/GCA_000001405.15_GRCh38_no_alt_analysis_set.fasta.gz.fai",
+      "source_gzi": "https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/release/references/GRCh38/GCA_000001405.15_GRCh38_no_alt_analysis_set.fasta.gz.gzi",
+      "source_fasta_gz_sha256": "3c8def6d325c5d1e934b2dd530c4d1709f027677a15859467071fddf3fff2026",
+      "uncompressed_fasta_sha256": "9cce8b926416dd96b152deea85188495b75f7ac8d634cc723a017067be8702b7",
+      "uncompressed_fai_sha256": "502a1b8fb73ccd53285c28a0f12df90c818b4fe3de1e862ef47c593ef1a0a4b4",
+      "campaign_fasta": "s3://scidev-playground-eu-west-2/variantbenchmarking-hap-public-vcf/2026-08-12/references/grch38-noalt.fasta",
+      "campaign_fai": "s3://scidev-playground-eu-west-2/variantbenchmarking-hap-public-vcf/2026-08-12/references/grch38-noalt.fasta.fai"
+    },
+    "grch37_hs37d5": {
+      "build": "GRCh37/hs37d5",
+      "source_fasta_gz": "https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/release/references/GRCh37/hs37d5.fa.gz",
+      "source_fai": "https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/release/references/GRCh37/hs37d5.fa.gz.fai",
+      "source_gzi": "https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/release/references/GRCh37/hs37d5.fa.gz.gzi",
+      "source_fasta_gz_sha256": "e9157e19a95e01dfc47080b5b6aa559c861de90b9934c2ea7c49cd5ec49e0285",
+      "uncompressed_fasta_sha256": "65add55817fc9a5de8221caf36e84bf8670f94bef9cff7889093692b271a765d",
+      "uncompressed_fai_sha256": "1eab7540d4b62ef0b43b50581d027be37c1ee57da9e9cb75957e750641c8630c",
+      "campaign_fasta": "s3://scidev-playground-eu-west-2/variantbenchmarking-hap-public-vcf/2026-08-12/references/grch37-hs37d5.fasta",
+      "campaign_fai": "s3://scidev-playground-eu-west-2/variantbenchmarking-hap-public-vcf/2026-08-12/references/grch37-hs37d5.fasta.fai"
+    },
+    "grch38_giabv3": {
+      "build": "GRCh38-GIABv3",
+      "source_fasta_gz": "https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/release/references/GRCh38/GRCh38_GIABv3_no_alt_analysis_set_maskedGRC_decoys_MAP2K3_KMT2C_KCNJ18.fasta.gz",
+      "source_fai": "https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/release/references/GRCh38/GRCh38_GIABv3_no_alt_analysis_set_maskedGRC_decoys_MAP2K3_KMT2C_KCNJ18.fasta.gz.fai",
+      "source_gzi": "https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/release/references/GRCh38/GRCh38_GIABv3_no_alt_analysis_set_maskedGRC_decoys_MAP2K3_KMT2C_KCNJ18.fasta.gz.gzi",
+      "source_fasta_gz_sha256": "b37cb9a9c0f8716fdb13e2c5c60f08cb8be40de39c3088176f1f62d9e8eeeed8",
+      "uncompressed_fasta_sha256": "0713026dfdd61fb1cd68be4b9689a9e5c55c8708a3843248b0b574506fd0f0e9",
+      "uncompressed_fai_sha256": "41a18c49dd97005d216e9313ba4bd3c646e1110f728e7988183aa44e3f000ad9",
+      "campaign_fasta": "s3://scidev-playground-eu-west-2/variantbenchmarking-hap-public-vcf/2026-08-12/references/grch38-giabv3.fasta",
+      "campaign_fai": "s3://scidev-playground-eu-west-2/variantbenchmarking-hap-public-vcf/2026-08-12/references/grch38-giabv3.fasta.fai"
+    }
+  },
+  "truth_sets": {
+    "giab_hg001_v4_2_1_grch38": {
+      "project": "Genome in a Bottle",
+      "release": "NISTv4.2.1",
+      "sample": "HG001/NA12878",
+      "build": "GRCh38",
+      "vcf": "https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/release/NA12878_HG001/NISTv4.2.1/GRCh38/HG001_GRCh38_1_22_v4.2.1_benchmark.vcf.gz",
+      "vcf_index": "https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/release/NA12878_HG001/NISTv4.2.1/GRCh38/HG001_GRCh38_1_22_v4.2.1_benchmark.vcf.gz.tbi",
+      "regions": "https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/release/NA12878_HG001/NISTv4.2.1/GRCh38/HG001_GRCh38_1_22_v4.2.1_benchmark.bed",
+      "sha256": {"vcf": "93bc4c2c696eaf13515ab058caecc064bfed704f85bac7482330ca91bc730daa", "index": "68a91b78042e66ed9a53ae4069ac7686abf02ea9a1f88da00e0054a7db06dccc", "regions": "dc3485e60447a3e863c34dfc063c3710ea5ed5efae50855c5197ba62538263b9"},
+      "variant_counts": {"records": 3893341, "snps": 3358502, "indels": 536489}
+    },
+    "giab_hg003_v4_2_1_grch38": {
+      "project": "Genome in a Bottle",
+      "release": "NISTv4.2.1",
+      "sample": "HG003/NA24149",
+      "build": "GRCh38",
+      "vcf": "https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/release/AshkenazimTrio/HG003_NA24149_father/NISTv4.2.1/GRCh38/HG003_GRCh38_1_22_v4.2.1_benchmark.vcf.gz",
+      "vcf_index": "https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/release/AshkenazimTrio/HG003_NA24149_father/NISTv4.2.1/GRCh38/HG003_GRCh38_1_22_v4.2.1_benchmark.vcf.gz.tbi",
+      "regions": "https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/release/AshkenazimTrio/HG003_NA24149_father/NISTv4.2.1/GRCh38/HG003_GRCh38_1_22_v4.2.1_benchmark_noinconsistent.bed",
+      "sha256": {"vcf": "a4f8fefa826f8d2c9457eacf6f4b2f6bfa29daef429d570ce04254c5e7b1121e", "index": "989305947e5af2e81ca8ad1087262a12cc87499b36163c49a7878dc9e18fcaa5", "regions": "652afd3046705af3200f9c87c255fef11bb212dd76c75a19999c9b2df8a3180c"},
+      "variant_counts": {"records": 4000097, "snps": 3432736, "indels": 569206}
+    },
+    "giab_hg005_v4_2_1_grch37": {
+      "project": "Genome in a Bottle",
+      "release": "NISTv4.2.1",
+      "sample": "HG005/NA24631",
+      "build": "GRCh37/hs37d5",
+      "vcf": "https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/release/ChineseTrio/HG005_NA24631_son/NISTv4.2.1/GRCh37/HG005_GRCh37_1_22_v4.2.1_benchmark.vcf.gz",
+      "vcf_index": "https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/release/ChineseTrio/HG005_NA24631_son/NISTv4.2.1/GRCh37/HG005_GRCh37_1_22_v4.2.1_benchmark.vcf.gz.tbi",
+      "regions": "https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/release/ChineseTrio/HG005_NA24631_son/NISTv4.2.1/GRCh37/HG005_GRCh37_1_22_v4.2.1_benchmark.bed",
+      "sha256": {"vcf": "15063360be7bba3a6e0e1d555342ba1aaacc285c11dd835e901e66c81818f554", "index": "1c14f74aff741a0770cd335562017fa67a8a35ad40ce9b9fd0eb83ca275aa624", "regions": "cd7e97a3142b9c432c66eef5db7629b415e504725904dc9075592d592adb7986"},
+      "variant_counts": {"records": 3846226, "snps": 3380559, "indels": 467118}
+    },
+    "giab_hg008_v0_3_grch38_giabv3": {
+      "project": "Cancer Genome in a Bottle HG008",
+      "release": "draft benchmark v0.3, 2026-04-25",
+      "sample": "HG008-T passage 23 batch 0823p23",
+      "build": "GRCh38-GIABv3",
+      "vcf": "https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data_somatic/HG008/Liss_lab/analysis/NIST_HG008-T_somatic-smvar_DraftBenchmark_V0.3-20260425/HG008-T_somatic_smvar_benchmark_v0.3_tumorvariants.vcf.gz",
+      "vcf_index": "https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data_somatic/HG008/Liss_lab/analysis/NIST_HG008-T_somatic-smvar_DraftBenchmark_V0.3-20260425/HG008-T_somatic_smvar_benchmark_v0.3_tumorvariants.vcf.gz.tbi",
+      "regions": "https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data_somatic/HG008/Liss_lab/analysis/NIST_HG008-T_somatic-smvar_DraftBenchmark_V0.3-20260425/HG008-T_somatic_smvar_benchmark_v0.3_nogermlineinterference.bed",
+      "sha256": {"vcf": "6ff5b215e0dc634c85da6164cffbd5790233258fcc48c88a598331430b061cad", "index": "826aa2906d51760069167972b384e3c31790b66b9828d7f3757c1e3515fe2f2f", "regions": "cad04330da8a2966410824f7d3101172fa30d3c4dbcd1abbf3c30730539f5ea1"},
+      "variant_counts": {"records": 18946, "snps": 9607, "indels": 9339},
+      "usage_note": "Real patient-derived PDAC tumor cell line benchmark, not synthetic. The no-germline-interference BED is selected because the source README recommends it for current comparison tools."
+    }
+  },
+  "cases": [
+    {
+      "id": "germline-hg001-platinum", "analysis": "germline", "reference": "grch38_no_alt", "truth_set": "giab_hg001_v4_2_1_grch38",
+      "query": {"project": "Illumina Platinum Genomes", "release": "2.0.1", "sample": "NA12878/HG001", "caller": "Platinum Genomes pedigree-integrated calls", "vcf": "https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data/NA12878/analysis/Illumina_PlatinumGenomes_NA12877_NA12878_09162015/hg38/2.0.1/NA12878/NA12878.vcf.gz", "vcf_index": "https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data/NA12878/analysis/Illumina_PlatinumGenomes_NA12877_NA12878_09162015/hg38/2.0.1/NA12878/NA12878.vcf.gz.tbi", "sha256": {"vcf": "b0608c877e4efdc61fc56927100f81194d2119dc4b47f52e0d0ef7ec8701dead", "index": "81cb0e3b5eb80b88e004985085d0f3457f52fc300b4c9e10749c10701894dc94"}, "observed_samples": ["NA12878"], "variant_counts": {"records": 4498138, "snps": 3790811, "indels": 710328}},
+      "samplesheet": "samplesheets/germline-hg001-platinum.csv", "rationale": "Independent pedigree-integrated Illumina callset for HG001 on GRCh38; adds a different sample and calling project from prior HG002 controls."
+    },
+    {
+      "id": "germline-hg003-rtg", "analysis": "germline", "reference": "grch38_no_alt", "truth_set": "giab_hg003_v4_2_1_grch38",
+      "query": {"project": "Real Time Genomics GIAB Ashkenazim Trio contribution", "release": "RTG Core 3.10.1, 2019-08-12", "sample": "NA24149/HG003", "caller": "rtg family with AVR 0.1 filter", "vcf": "https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data/AshkenazimTrio/analysis/RTG_RTGJointTrio_08122019/GRCh38/family.merged.avr_0.1.vcf.gz", "vcf_index": "https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data/AshkenazimTrio/analysis/RTG_RTGJointTrio_08122019/GRCh38/family.merged.avr_0.1.vcf.gz.tbi", "sha256": {"vcf": "fc58680f811d1cc3ac522756e2c26d436fcae2c24b0057d06c7eef128e0b8cfe", "index": "ea8338ac9c7ee91f4e22df1c61585163b070746339b113acbddf40fb171b6352"}, "observed_samples": ["NA24149", "NA24143", "NA24385"], "subsample": "NA24149", "variant_counts_after_subsample": {"records": 7015589, "snps": 5806970, "indels": 1143581}},
+      "samplesheet": "samplesheets/germline-hg003-rtg.csv", "rationale": "Independent RTG trio callset and HG003 sample on GRCh38, explicitly subsampled from the verified multisample VCF."
+    },
+    {
+      "id": "germline-hg005-deepvariant", "analysis": "germline", "reference": "grch37_hs37d5", "truth_set": "giab_hg005_v4_2_1_grch37",
+      "query": {"project": "PacBio CCS Chinese Trio analysis", "release": "2020-12-07", "sample": "HG005/NA24631", "caller": "DeepVariant on PacBio CCS", "vcf": "https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data/ChineseTrio/analysis/PacBio_CCS_15kb_20kb_chemistry2_12072020/HG005/HG005.hs37d5.deepvariant.vcf.gz", "vcf_index": "https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data/ChineseTrio/analysis/PacBio_CCS_15kb_20kb_chemistry2_12072020/HG005/HG005.hs37d5.deepvariant.vcf.gz.tbi", "sha256": {"vcf": "6f3349b353655a5c259e45243ed78699c2c43c47bd8963544f359a2d4f2ed86a", "index": "aca877495864c87ca0761d891ffb5fc90ec9298549727e6eeac10ac3def2579"}, "observed_samples": ["HG005"], "variant_counts": {"records": 10897844, "snps": 4354365, "indels": 6552691}},
+      "samplesheet": "samplesheets/germline-hg005-deepvariant.csv", "rationale": "Long-read CCS/DeepVariant query from the Chinese Trio on hs37d5; supplies the second major reference build and a distinct sample/caller."
+    },
+    {
+      "id": "somatic-hg008-deepsomatic", "analysis": "somatic", "reference": "grch38_giabv3", "truth_set": "giab_hg008_v0_3_grch38_giabv3",
+      "query": {"project": "UCSC and Google DeepSomatic HG008 analysis", "release": "DeepSomatic 1.6.0 model 354, 2024-03-08", "sample": "HG008-T passage 23 and HG008-N-P", "caller": "DeepSomatic PacBio HiFi somatic-only", "vcf": "https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data_somatic/HG008/Liss_lab/analysis/UCSC_HiFi_DeepSomatic-SNV-INDEL_20240308/0201_HG008_HiFi_DeepSomatic_v1.6.0_model354_somaticOnly.vcf.gz", "vcf_index": "https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data_somatic/HG008/Liss_lab/analysis/UCSC_HiFi_DeepSomatic-SNV-INDEL_20240308/0201_HG008_HiFi_DeepSomatic_v1.6.0_model354_somaticOnly.vcf.gz.tbi", "sha256": {"vcf": "96da190d1c32e5a064cca5911e2b916c1a38d48735f8fc1c25ca0f5cbec80c2b", "index": "e5fa246fc45ecc17dd15cde3c35e390f257d6205399b65d5f2f3935b2ab1070d"}, "observed_samples": ["HG008_tumor_hifi"], "variant_counts": {"records": 13567, "snps": 11413, "indels": 2154}},
+      "samplesheet": "samplesheets/somatic-hg008-deepsomatic.csv", "rationale": "Patient-derived HG008 tumor/normal HiFi callset from DeepSomatic with both SNVs and indels."
+    },
+    {
+      "id": "somatic-hg008-nygc", "analysis": "somatic", "reference": "grch38_giabv3", "truth_set": "giab_hg008_v0_3_grch38_giabv3",
+      "query": {"project": "New York Genome Center somatic pipeline", "release": "final v7, 2024-04-12", "sample": "HG008-T passage 23 and HG008-N-P", "caller": "NYGC consensus small variants", "vcf": "https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data_somatic/HG008/Liss_lab/analysis/NYGC-somatic-pipeline_20240412/GRCh38-GIABv3/HG008-T--HG008-N.snv.indel.final.v7.annotated.vcf.gz", "vcf_index": "https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data_somatic/HG008/Liss_lab/analysis/NYGC-somatic-pipeline_20240412/GRCh38-GIABv3/HG008-T--HG008-N.snv.indel.final.v7.annotated.vcf.gz.tbi", "sha256": {"vcf": "5588e1455adf4e61e09070b0b935004f22c7d5bcb061c152603738a3c9c5fdcd", "index": "6002b52af46f55e48bfceb8b3e3c49d705abc999f6782088d1a1bad521420586"}, "observed_samples": ["HG008-N", "HG008-T"], "subsample": "HG008-T", "variant_counts_after_subsample": {"records": 14869, "snps": 12599, "indels": 2062}},
+      "samplesheet": "samplesheets/somatic-hg008-nygc.csv", "rationale": "Independent NYGC consensus analysis of the patient-derived HG008 pair, explicitly subsampled to the tumor genotype."
+    },
+    {
+      "id": "somatic-hg008-ultima", "analysis": "somatic", "reference": "grch38_giabv3", "truth_set": "giab_hg008_v0_3_grch38_giabv3",
+      "query": {"project": "Ultima Genomics HG008 analysis", "release": "2024-08-22", "sample": "HG008-T passage 23 and HG008-N-D", "caller": "Ultima-optimized DeepVariant somatic with AF recalibration", "vcf": "https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data_somatic/HG008/Liss_lab/analysis/Ultima_DeepVariant-somatic-SNV-INDEL_20240822/HG008_edv_AF_recalibration.result.PASS.vcf.gz", "vcf_index": "https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data_somatic/HG008/Liss_lab/analysis/Ultima_DeepVariant-somatic-SNV-INDEL_20240822/HG008_edv_AF_recalibration.result.PASS.vcf.gz.tbi", "sha256": {"vcf": "7924df3bd2e74b08526207481127c486095a66afe094faae18e23fd36519f2c5", "index": "2f23916d3762c283f26f8f26bd6db3cc0c8b777c2832a92e70631f998158b5ee"}, "observed_samples": ["HG008_T"], "variant_counts": {"records": 13030, "snps": 10526, "indels": 2509}},
+      "samplesheet": "samplesheets/somatic-hg008-ultima.csv", "rationale": "Independent Ultima sequencing and somatic DeepVariant analysis of the patient-derived HG008 pair with both SNVs and indels."
+    }
+  ]
+}

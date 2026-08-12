@@ -1,0 +1,2 @@
+test_vcf,test_regions,id,caller,subsample
+https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data/ChineseTrio/analysis/PacBio_CCS_15kb_20kb_chemistry2_12072020/HG005/HG005.hs37d5.deepvariant.vcf.gz,,germline-hg005-deepvariant,deepvariant,

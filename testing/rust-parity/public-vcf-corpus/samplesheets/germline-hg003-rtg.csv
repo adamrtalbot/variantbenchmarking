@@ -1,0 +1,2 @@
+test_vcf,test_regions,id,caller,subsample
+https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data/AshkenazimTrio/analysis/RTG_RTGJointTrio_08122019/GRCh38/family.merged.avr_0.1.vcf.gz,,germline-hg003-rtg,rtg-family,NA24149

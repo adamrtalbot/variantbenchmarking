@@ -1,0 +1,2 @@
+test_vcf,test_regions,id,caller,subsample
+https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data_somatic/HG008/Liss_lab/analysis/UCSC_HiFi_DeepSomatic-SNV-INDEL_20240308/0201_HG008_HiFi_DeepSomatic_v1.6.0_model354_somaticOnly.vcf.gz,,somatic-hg008-deepsomatic,deepsomatic,

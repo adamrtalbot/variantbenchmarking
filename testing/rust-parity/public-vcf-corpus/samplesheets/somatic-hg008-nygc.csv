@@ -1,0 +1,2 @@
+test_vcf,test_regions,id,caller,subsample
+https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data_somatic/HG008/Liss_lab/analysis/NYGC-somatic-pipeline_20240412/GRCh38-GIABv3/HG008-T--HG008-N.snv.indel.final.v7.annotated.vcf.gz,,somatic-hg008-nygc,nygc-consensus,HG008-T

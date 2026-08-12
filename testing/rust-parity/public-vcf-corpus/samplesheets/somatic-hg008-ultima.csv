@@ -1,0 +1,2 @@
+test_vcf,test_regions,id,caller,subsample
+https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data_somatic/HG008/Liss_lab/analysis/Ultima_DeepVariant-somatic-SNV-INDEL_20240822/HG008_edv_AF_recalibration.result.PASS.vcf.gz,,somatic-hg008-ultima,ultima-deepvariant-somatic,
