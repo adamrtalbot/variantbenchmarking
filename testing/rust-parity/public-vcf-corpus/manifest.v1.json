@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "manifest_version": "2026-08-12.1",
+  "manifest_version": "2026-08-12.2",
   "created_at": "2026-08-12T17:20:00Z",
   "campaign": "public-vcf-legacy-hap-rs-parity-2026-08-12",
   "workspace_id": "162690105070735",
@@ -134,8 +134,8 @@
       "samplesheet": "samplesheets/somatic-hg008-nygc.csv", "rationale": "Independent NYGC consensus analysis of the patient-derived HG008 pair, explicitly subsampled to the tumor genotype."
     },
     {
-      "id": "somatic-hg008-ultima", "analysis": "somatic", "reference": "grch38_giabv3", "truth_set": "giab_hg008_v0_3_grch38_giabv3",
-      "query": {"project": "Ultima Genomics HG008 analysis", "release": "2024-08-22", "sample": "HG008-T passage 23 and HG008-N-D", "caller": "Ultima-optimized DeepVariant somatic with AF recalibration", "vcf": "https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data_somatic/HG008/Liss_lab/analysis/Ultima_DeepVariant-somatic-SNV-INDEL_20240822/HG008_edv_AF_recalibration.result.PASS.vcf.gz", "vcf_index": "https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data_somatic/HG008/Liss_lab/analysis/Ultima_DeepVariant-somatic-SNV-INDEL_20240822/HG008_edv_AF_recalibration.result.PASS.vcf.gz.tbi", "sha256": {"vcf": "7924df3bd2e74b08526207481127c486095a66afe094faae18e23fd36519f2c5", "index": "2f23916d3762c283f26f8f26bd6db3cc0c8b777c2832a92e70631f998158b5ee"}, "observed_samples": ["HG008_T"], "variant_counts": {"records": 13030, "snps": 10526, "indels": 2509}},
+      "id": "somatic-hg008-ultima", "analysis": "somatic", "reference": "grch38_giabv3", "truth_set": "giab_hg008_v0_3_grch38_giabv3", "preprocess": "fix_format_cardinality,split_multiallelic,normalize,deduplicate",
+      "query": {"project": "Ultima Genomics HG008 analysis", "release": "2024-08-22", "sample": "HG008-T passage 23 and HG008-N-D", "caller": "Ultima-optimized DeepVariant somatic with AF recalibration", "vcf": "https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data_somatic/HG008/Liss_lab/analysis/Ultima_DeepVariant-somatic-SNV-INDEL_20240822/HG008_edv_AF_recalibration.result.PASS.vcf.gz", "vcf_index": "https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data_somatic/HG008/Liss_lab/analysis/Ultima_DeepVariant-somatic-SNV-INDEL_20240822/HG008_edv_AF_recalibration.result.PASS.vcf.gz.tbi", "sha256": {"vcf": "7924df3bd2e74b08526207481127c486095a66afe094faae18e23fd36519f2c5", "index": "2f23916d3762c283f26f8f26bd6db3cc0c8b777c2832a92e70631f998158b5ee"}, "observed_samples": ["HG008_T"], "variant_counts": {"records": 13030, "snps": 10526, "indels": 2509}, "compatibility_note": "FORMAT/BG_SB and FORMAT/SB are declared Number=R but store forward/reverse count pairs. The opt-in fix_format_cardinality preprocessing step changes only those declarations to Number=. before bcftools multiallelic splitting; record content is unchanged."},
       "samplesheet": "samplesheets/somatic-hg008-ultima.csv", "rationale": "Independent Ultima sequencing and somatic DeepVariant analysis of the patient-derived HG008 pair with both SNVs and indels."
     }
   ]

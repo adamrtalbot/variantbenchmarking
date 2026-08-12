@@ -11,6 +11,11 @@ records observed samples, contigs, and complete `bcftools stats` variant counts.
 References are staged as uncompressed FASTA plus FAI under the campaign S3
 prefix; their checksums are the decompressed checksums recorded in the manifest.
 
+The Ultima case opts into `fix_format_cardinality` before the common
+preprocessing sequence. Its source declares `BG_SB` and `SB` as `Number=R` even
+though each allele stores a forward/reverse pair. The step corrects those two
+header declarations to variable cardinality and preserves every VCF record.
+
 Run `compare_manifest_case.py` after downloading a matched output pair. It loads
 the unchanged `compare_outputs.py`, supplies the manifest case's expected sample
 and artifact count, and writes the normal strict comparison report. Run

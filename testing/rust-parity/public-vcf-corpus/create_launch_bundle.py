@@ -36,7 +36,9 @@ def main() -> int:
             "analysis": case["analysis"],
             "variant_type": "small",
             "method": tool,
-            "preprocess": "split_multiallelic,normalize,deduplicate",
+            "preprocess": case.get(
+                "preprocess", "split_multiallelic,normalize,deduplicate"
+            ),
             "truth_id": truth["sample"].split("/")[0].split(" ")[0],
             "truth_vcf": truth["vcf"],
             "regions_bed": truth["regions"],
