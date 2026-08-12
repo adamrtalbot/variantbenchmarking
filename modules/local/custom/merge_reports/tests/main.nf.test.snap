@@ -108,5 +108,54 @@
             "nf-test": "0.9.4",
             "nextflow": "25.10.4"
         }
+    },
+    "Single report merge": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "benchmark_tool": "svbenchmark",
+                            "vartype": "structural"
+                        },
+                        "svbenchmark.summary.csv:md5,020f909ed1ea92315d70eccd60718ecd"
+                    ]
+                ],
+                "1": [
+
+                ],
+                "2": [
+                    [
+                        "MERGE_REPORTS",
+                        "python",
+                        "3.12.13"
+                    ]
+                ],
+                "regions": [
+
+                ],
+                "summary": [
+                    [
+                        {
+                            "benchmark_tool": "svbenchmark",
+                            "vartype": "structural"
+                        },
+                        "svbenchmark.summary.csv:md5,020f909ed1ea92315d70eccd60718ecd"
+                    ]
+                ],
+                "versions_python": [
+                    [
+                        "MERGE_REPORTS",
+                        "python",
+                        "3.12.13"
+                    ]
+                ]
+            }
+        ],
+        "timestamp": "2026-08-12T18:26:58.13422",
+        "meta": {
+            "nf-test": "0.9.5",
+            "nextflow": "26.04.6"
+        }
     }
 }
