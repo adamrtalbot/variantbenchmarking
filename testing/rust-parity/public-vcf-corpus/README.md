@@ -19,4 +19,7 @@ header declarations to variable cardinality and preserves every VCF record.
 Run `compare_manifest_case.py` after downloading a matched output pair. It loads
 the unchanged `compare_outputs.py`, supplies the manifest case's expected sample
 and artifact count, and writes the normal strict comparison report. Run
-`aggregate_reports.py` only after all six per-case reports exist.
+`compare_complete_case.py` to account for every published artifact, including
+implementation-specific provenance outputs. Run `aggregate_reports.py` and
+`aggregate_complete_reports.py` only after all six corresponding per-case
+reports exist.
