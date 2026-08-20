@@ -168,6 +168,16 @@ workflow PIPELINE_COMPLETION {
 //
 def validateInputParameters() {
     genomeExistsError()
+    haprsMethodWarning()
+}
+
+//
+// Warn when haprs is selected without a legacy tool to run beside
+//
+def haprsMethodWarning() {
+    if (params.method.contains("haprs") && !(params.method.contains("happy") || params.method.contains("sompy"))) {
+        log.warn "[nf-core/variantbenchmarking] WARN: 'haprs' runs beside 'happy' (germline) or 'sompy' (somatic) on the same input. Selected alone it produces no benchmark. Add 'happy' and/or 'sompy' to --method."
+    }
 }
 
 //

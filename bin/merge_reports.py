@@ -13,12 +13,12 @@ import json
 
 def parse_args(args=None):
 	Description = "Merges benchmark reports from multiple samples for multiple tools"
-	Epilog = "Example usage: python merge_reports.py file1 file2 file3 -o merged_table.csv -b truvari/svbenchmark/wittyer/happy/sompy/rtgtools/concordance/intersect -v snv/indel/structural/copynumber -a germline/somatic "
+	Epilog = "Example usage: python merge_reports.py file1 file2 file3 -o merged_table.csv -b truvari/svbenchmark/wittyer/happy/sompy/rtgtools/concordance/intersect/haprs -v snv/indel/structural/copynumber -a germline/somatic "
 
 	parser = argparse.ArgumentParser(description=Description, epilog=Epilog)
 	parser.add_argument("inputs", nargs="+", help="List of files to merge")
 	parser.add_argument("--output", "-o", required=True, help="Output file")
-	parser.add_argument("--bench", "-b", required=True, help="truvari/svbenchmark/wittyer/happy/sompy/rtgtools/concordance/intersect")
+	parser.add_argument("--bench", "-b", required=True, help="truvari/svbenchmark/wittyer/happy/sompy/rtgtools/concordance/intersect/haprs")
 	parser.add_argument("--vartype", "-v", required=True, help="Variant type: snv,indel,structural,small,copynumber")
 	parser.add_argument("--analysis", "-a", required=True, help="Analysis type: germline,somatic")
 
@@ -335,8 +335,17 @@ def main(args=None):
 		summ_table2.reset_index(drop=True, inplace=True)
 		summ_table2.to_csv(args.output + ".regions.csv", index=False)
 
+	elif args.bench == "haprs":
+		# hap-rs reuses the legacy report formats: hap germline == happy, hap somatic == sompy.
+		if args.analysis == "somatic":
+			summ_table,summ_table2 = get_sompy_results(args.inputs,args.vartype)
+			summ_table2.reset_index(drop=True, inplace=True)
+			summ_table2.to_csv(args.output + ".regions.csv", index=False)
+		else:
+			summ_table = get_happy_results(args.inputs)
+
 	else:
-		raise ValueError('only results from concordance, intersect, truvari, svbenchmark, wittyer, rtgtools, happy or sompy tools can be merged')
+		raise ValueError('only results from concordance, intersect, truvari, svbenchmark, wittyer, rtgtools, happy, sompy or haprs tools can be merged')
 
 	summ_table.reset_index(drop=True, inplace=True)
 	summ_table.to_csv(args.output + ".summary.csv", index=False)

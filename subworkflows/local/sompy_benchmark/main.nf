@@ -3,6 +3,7 @@
 //
 
 include { HAPPY_SOMPY          } from '../../../modules/nf-core/happy/sompy'
+include { HAP_SOMATIC          } from '../../../modules/local/hap/somatic/main'
 include { SOMPY_FEATURES_SPLIT } from '../../../modules/local/sompy_features/split'
 
 workflow SOMPY_BENCHMARK {
@@ -31,6 +32,23 @@ workflow SOMPY_BENCHMARK {
         .map { _meta, file -> tuple([vartype: params.variant_type] + [benchmark_tool: "sompy"], file) }
         .groupTuple()
         .set{ summary_reports }
+
+    // hap-rs somatic, run side by side with som.py on the same input
+    if (params.method.contains('haprs')){
+        HAP_SOMATIC(
+            input_ch.map{meta, test, _test_index, truth, _truth_index, regions, target -> [meta, test, truth, regions, target]},
+            fasta,
+            fai,
+            falsepositive_bed,
+            ambiguous_beds,
+            [[],[]]
+        )
+        summary_reports = summary_reports.mix(
+            HAP_SOMATIC.out.stats
+                .map { _meta, file -> tuple([vartype: params.variant_type] + [benchmark_tool: "haprs"], file) }
+                .groupTuple()
+        )
+    }
 
     SOMPY_FEATURES_SPLIT(
         HAPPY_SOMPY.out.features

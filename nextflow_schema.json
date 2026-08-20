@@ -50,10 +50,16 @@
                 },
                 "method": {
                     "type": "string",
-                    "description": "The benchmarking methods to use. For germline small variants (SNV and INDEL) use happy and/or rtgtools, for somatic small variants (SNV and INDEL) use sompy and/or rtgtools, for structural variants use wittyer, truvari and/or svanalyzer, for copy number variations use wittyer and/or truvari. Use intersect to intersect BED files. Should be a comma-separate list of one or more of the following options: truvari, svanalyzer, happy, sompy, rtgtools, wittyer, intersect",
-                    "errorMessage": "A wrong input has been detected. Should be a comma-separated list of one or more of the following options: truvari, svanalyzer, happy, sompy, rtgtools, wittyer, intersect, concordance",
-                    "pattern": "^((truvari|svanalyzer|happy|sompy|rtgtools|wittyer|intersect|bndeval|concordance)?,?)*(?<!,)$",
+                    "description": "The benchmarking methods to use. For germline small variants (SNV and INDEL) use happy and/or rtgtools, for somatic small variants (SNV and INDEL) use sompy and/or rtgtools, for structural variants use wittyer, truvari and/or svanalyzer, for copy number variations use wittyer and/or truvari. Use intersect to intersect BED files. Add haprs alongside happy or sompy to run hap-rs (hap germline / hap somatic) side by side with the legacy hap.py tools. Should be a comma-separate list of one or more of the following options: truvari, svanalyzer, happy, sompy, rtgtools, wittyer, intersect, bndeval, concordance, haprs",
+                    "errorMessage": "A wrong input has been detected. Should be a comma-separated list of one or more of the following options: truvari, svanalyzer, happy, sompy, rtgtools, wittyer, intersect, bndeval, concordance, haprs",
+                    "pattern": "^((truvari|svanalyzer|happy|sompy|rtgtools|wittyer|intersect|bndeval|concordance|haprs)?,?)*(?<!,)$",
                     "fa_icon": "fas fa-folder-open"
+                },
+                "haprs_container": {
+                    "type": "string",
+                    "description": "Container image providing the hap-rs `hap` executable. Used by the haprs method. hap-rs has no crates.io or registry release yet, so a locally built image is the default; a published image is required for test_full.",
+                    "fa_icon": "fas fa-box",
+                    "hidden": true
                 },
                 "regions_bed": {
                     "type": "string",

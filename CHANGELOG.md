@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Replace local module VARIANT_EXTRACTOR with nf-core module VARIANTEXTRACTOR [#278](https://github.com/nf-core/variantbenchmarking/pull/295/)
 - Adding nf-test and meta.yml to local subworklfows, removing overlapping workflow tests [#257](https://github.com/nf-core/variantbenchmarking/pull/296)
 - Adding rtgtools cnveval as a new benchmarking method for copynumber variants [#298](https://github.com/nf-core/variantbenchmarking/pull/298).
+- Adding `haprs` method to run hap-rs (`hap germline` / `hap somatic`) side by side with the legacy hap.py `happy`/`sompy` on identical input, for drop-in parity validation [#41](https://github.com/adamrtalbot/hap.py/issues/41).
 
 ### `Fixed`
 

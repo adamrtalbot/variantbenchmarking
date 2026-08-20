@@ -50,7 +50,9 @@ workflow REPORT_BENCHMARK_STATISTICS {
     summary
         .map { meta, summary_file ->
             def updated_meta = meta + [ csv: summary_file.toString() ]
-            def template_file = file("${projectDir}/assets/datavzrd/${meta.id}.datavzrd.template.yaml", checkIfExists: true)
+            // hap-rs reuses the legacy report layouts: hap germline == happy, hap somatic == sompy.
+            def template_tool = meta.id == "haprs" ? (params.analysis?.contains("somatic") ? "sompy" : "happy") : meta.id
+            def template_file = file("${projectDir}/assets/datavzrd/${template_tool}.datavzrd.template.yaml", checkIfExists: true)
             [ updated_meta, template_file ]
         }
         .set { template_ch }

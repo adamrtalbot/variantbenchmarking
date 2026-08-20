@@ -71,7 +71,7 @@ workflow VARIANTBENCHMARKING {
 
 
 
-    if (params.method ==~ /.*(?:truvari|svanalyzer|happy|sompy|rtgtools|wittyer).*/) {
+    if (params.method ==~ /.*(?:truvari|svanalyzer|happy|sompy|rtgtools|wittyer|haprs).*/) {
         // Note: concordance analysis does not require truth files
         if (params.ensemble_truth){
             log.warn "[nf-core/variantbenchmarking] WARN: --truth_id will be treated as 'truth', meaning, ensembled truth file will be named as 'truth'"

@@ -3,6 +3,7 @@
 //
 
 include { HAPPY_HAPPY      } from '../../../modules/nf-core/happy/happy/main'
+include { HAP_GERMLINE     } from '../../../modules/local/hap/germline/main'
 include { HAPPY_PREPY      } from '../../../modules/nf-core/happy/prepy/main'
 include { BCFTOOLS_REHEADER as BCFTOOLS_REHEADER_1    } from '../../../modules/nf-core/bcftools/reheader'
 include { BCFTOOLS_REHEADER as BCFTOOLS_REHEADER_2    } from '../../../modules/nf-core/bcftools/reheader'
@@ -65,6 +66,23 @@ workflow HAPPY_BENCHMARK {
         .map { _meta, file -> tuple([vartype: params.variant_type] + [benchmark_tool: "happy"], file) }
         .groupTuple()
         .set{ summary_reports }
+
+    // hap-rs germline, run side by side with hap.py on the same preprocessed input
+    if (params.method.contains('haprs')){
+        HAP_GERMLINE(
+            test_ch.join(truth_ch, failOnDuplicate:true, failOnMismatch:true),
+            fasta,
+            fai,
+            falsepositive_bed,
+            stratification_tsv,
+            stratification_bed
+        )
+        summary_reports = summary_reports.mix(
+            HAP_GERMLINE.out.summary_csv
+                .map { _meta, file -> tuple([vartype: params.variant_type] + [benchmark_tool: "haprs"], file) }
+                .groupTuple()
+        )
+    }
 
     // Subsample TRUTH column from happy results
     BCFTOOLS_VIEW_TRUTH(
