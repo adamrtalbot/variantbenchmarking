@@ -35,7 +35,7 @@ HASHCHECK
 }
 
 workflow {
-    converter = file("${projectDir}/bin/vcf_to_csv.py", checkIfExists: true)
+    converter = file("${projectDir}/../../bin/vcf_to_csv.py", checkIfExists: true)
     Channel
         .of(
             ['happy.TP_base', params.base_vcf],
